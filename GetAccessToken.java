@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Iterator;
  
 public class GetAccessToken {
- 
 	public static void main(String[] varargs) {
 		try {
 			GetAccessToken task = new GetAccessToken(new URL("https://api.instagram.com/oauth/access_token"));
@@ -22,19 +21,13 @@ public class GetAccessToken {
 			task.setParam("redirect_uri", "");
 			task.setParam("code", "");
 			String[] response = task.runTask();
-			
-			//for (int i = 0; i < response.length; i++)
-				//System.out.println(String.format("Response line: %s",response[i]));
- 
 		} catch (Throwable t) {
-			//t.printStackTrace();
 		}
 	}
- 
+	
 	private static final String userAgent = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7";
 	private final URL url;
 	private HashMap<String, String> params;
- 
 	public GetAccessToken(URL target) {
 		url = target;
 		params = new HashMap<String, String>();
@@ -77,8 +70,6 @@ public class GetAccessToken {
 			result.add(str);
 		}
 		getStream.close();
-		//result.add("");
-		//System.out.println("result: " + result.toString());
 		return result.toArray(new String[0]);
 		}
 }
